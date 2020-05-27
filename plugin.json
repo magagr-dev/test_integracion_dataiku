@@ -1,1 +1,9 @@
-
+"label": "Test Plugin"
+"description": "Test construcción plugin desde repositorio GIT"
+"params": [
+  {
+      "name": "row",
+      "label": "row",
+      "description": "Row processed"
+  }
+]

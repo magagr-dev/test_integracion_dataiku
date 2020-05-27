@@ -1,8 +1,8 @@
 {
-  "id": "my-new-plugin"
+  "id": "my-new-plugin",
   "meta": {
-    "label": "Test Plugin"
-    "description": "Test construcción plugin desde repositorio GIT"
+    "label": "Test Plugin",
+    "description": "Test construcción plugin desde repositorio GIT",
     "params": [
       {
           "name": "row",

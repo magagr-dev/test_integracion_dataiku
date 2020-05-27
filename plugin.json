@@ -1,5 +1,5 @@
 {
-  "id": "my-new-plugin",
+  "id": "test-plugin",
   "meta": {
     "label": "Test Plugin",
     "description": "Test construcción plugin desde repositorio GIT",

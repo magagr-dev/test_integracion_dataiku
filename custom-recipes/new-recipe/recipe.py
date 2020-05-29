@@ -1,2 +1,2 @@
-def(row):
-  return row[1]
+def returnSameInput(row):
+  return row

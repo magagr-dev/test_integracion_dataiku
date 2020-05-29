@@ -1,0 +1,15 @@
+{
+    "meta": {
+        "label": "new recipe",
+        "description": "new recipe from plugin"
+    },
+    "kind": "PYTHON",
+    "selectableFromDataset": "input_dataset",
+    "params": [
+        {
+            "name": "row",
+            "label": "Row to be processed",
+            "mandatory": true
+        }
+    ]
+}

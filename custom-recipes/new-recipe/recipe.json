@@ -5,6 +5,27 @@
     },
     "kind": "PYTHON",
     "selectableFromDataset": "input_dataset",
+    "inputRoles": [
+        {
+            "name": "input_dataset",
+            "label": "Input dataset",
+            "description": "Dataset containing your data.",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true,
+            "acceptsFolder": false
+        }
+    ],
+    "outputRoles": [
+        {
+            "name": "shape",
+            "label": "Shape of the dataset",
+            "description": "",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
     "params": [
         {
             "name": "row",

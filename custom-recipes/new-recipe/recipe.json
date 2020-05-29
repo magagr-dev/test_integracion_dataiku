@@ -1,5 +1,6 @@
 {
     "meta": {
+        "name": "get the shape",
         "label": "new recipe",
         "description": "new recipe from plugin"
     },
@@ -21,9 +22,7 @@
             "name": "shape",
             "label": "Shape of the dataset",
             "description": "",
-            "arity": "UNARY",
             "required": true,
-            "acceptsDataset": true
         }
     ],
     "params": [

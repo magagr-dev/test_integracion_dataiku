@@ -1,35 +1,33 @@
 {
-    "meta": {
-        "name": "get the shape",
-        "label": "new recipe",
-        "description": "new recipe from plugin"
+    "meta" : {
+        "label" : "My custom recipe",
+        "icon" : "icon-puzzle-piece"
     },
-    "kind": "PYTHON",
-    "selectableFromDataset": "input_dataset",
-    "inputRoles": [
+
+    "kind" : "PYTHON",
+
+    "selectableFromDataset": "main",
+
+    "inputRoles" : [
         {
-            "name": "input_dataset",
+            "name": "main",
             "label": "Input dataset",
-            "description": "Dataset containing your data.",
             "arity": "UNARY",
             "required": true,
-            "acceptsDataset": true,
-            "acceptsFolder": false
+            "acceptsDataset": true
         }
     ],
-    "outputRoles": [
+
+    "outputRoles" : [
         {
-            "name": "shape",
-            "label": "Shape of the dataset",
-            "description": "",
+            "name": "output",
+            "label": "Output dataset",
+            "arity": "UNARY",
             "required": true,
+            "acceptsDataset": true
         }
     ],
-    "params": [
-        {
-            "name": "row",
-            "label": "Row to be processed",
-            "mandatory": true
-        }
-    ]
+
+    "params": [],
+    "resourceKeys" : []
 }

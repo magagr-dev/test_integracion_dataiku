@@ -1,33 +1,16 @@
 {
     "meta" : {
-        "label" : "My custom recipe",
+        "label" : "Custom processor",
+        "description" : "",
         "icon" : "icon-puzzle-piece"
     },
-
-    "kind" : "PYTHON",
-
-    "selectableFromDataset": "main",
-
-    "inputRoles" : [
+    "mode": "CELL",
+    "params" : [
         {
-            "name": "main",
-            "label": "Input dataset",
-            "arity": "UNARY",
-            "required": true,
-            "acceptsDataset": true
+            "name": "param1",
+            "label": "Parameter 1",
+            "type": "STRING",
+            "description": "Some documentation for parameter1",
+            "mandatory": true
         }
-    ],
-
-    "outputRoles" : [
-        {
-            "name": "output",
-            "label": "Output dataset",
-            "arity": "UNARY",
-            "required": true,
-            "acceptsDataset": true
-        }
-    ],
-
-    "params": [],
-    "resourceKeys" : []
-}
+    ]

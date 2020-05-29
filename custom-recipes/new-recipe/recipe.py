@@ -1,2 +1,2 @@
 def(row):
-  return row.shape()
+  return row[1]

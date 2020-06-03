@@ -10,7 +10,7 @@
 
     "inputRoles" : [
         {
-            "name": "main",
+            "name": "inputDataset",
             "label": "Input dataset",
             "arity": "UNARY",
             "required": true,
@@ -20,14 +20,30 @@
 
     "outputRoles" : [
         {
-            "name": "output",
-            "label": "Output dataset",
+            "name": "transformedDataset",
+            "label": "Processed dataset",
             "arity": "UNARY",
             "required": true,
             "acceptsDataset": true
         }
     ],
 
-    "params": [],
+    "params": [
+        {   "name": "numTransform",
+            "label":  "Number of transformations",
+            "type":  "INT",
+            "defaultValue": 1
+        },
+        {
+            "name": "transform_list",
+            "label": "Shape",
+            "type": "SELECT",
+            "selectChoices": [
+                { "value": "none", "label": "Select a transformation" },
+                { "value": "CCD", "label": "Drop correlated columns"},
+                { "value": "LVCCD", "label": "Drop column with low variance"}
+            ],
+            "defaultValue": "none"
+        }],
     "resourceKeys" : []
 }

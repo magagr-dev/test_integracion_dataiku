@@ -36,7 +36,7 @@
         },
         {
             "name": "transform_list",
-            "label": "Shape",
+            "label": "Transforms available",
             "type": "SELECT",
             "selectChoices": [
                 { "value": "none", "label": "Select a transformation" },

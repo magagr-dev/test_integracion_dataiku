@@ -10,12 +10,15 @@ transformed_dataset = dataiku.Dataset(get_output_names_for_role("transformedData
 recipe_config = get_recipe_config()
 
 transforms = recipe_config["transform_list"].split(";")
+transformed_dataset = input_dataset.copy()
 
 def switch_transform(transform):
   switcher = {
-    "CCD": "CorrelatedColumnDropper",
-    "LVCC": "LowVarianceColumnDropper"
+    "CCD": CorrelatedColumnDropper,
+    "LVCC": LowVarianceColumnDropper
   }
   return switcher.get(transform, "Invalid transformation")
 
 while iter <= recipe_config["numTransform"]:
+  apply_transform = switch_transform(transforms[iter])
+  transformed_dataset = apply_transform(transformed_dataset)

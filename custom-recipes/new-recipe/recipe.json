@@ -29,21 +29,45 @@
     ],
 
     "params": [
-        {   "name": "numTransform",
-            "label":  "Number of transformations",
-            "type":  "INT",
-            "defaultValue": 1
+        {
+            "name": "CCD",
+            "label": "Drop correlated columns",
+            "type": "BOOLEAN",
+            "defaultValue": false
         },
         {
-            "name": "transform_list",
-            "label": "Transforms available",
-            "type": "SELECT",
-            "selectChoices": [
-                { "value": "none", "label": "Select a transformation" },
-                { "value": "CCD", "label": "Drop correlated columns"},
-                { "value": "LVCCD", "label": "Drop column with low variance"}
-            ],
-            "defaultValue": "none"
-        }],
+            "name": "CCD-params",
+            "label" : "Threshold",
+            "type":  "FLOAT",
+            "defaultValue": 0.9,
+            "visibilityCondition" : "model.CCD"
+        },
+        {
+            "name": "LVCD",
+            "label": "Drop column(s) with low variance",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "LVCD-params",
+            "label" : "Threshold",
+            "type":  "FLOAT",
+            "defaultValue": 0.01,
+            "visibilityCondition" : "model.LVCD"
+        },
+        {
+            "name": "CD",
+            "label": "Drop column(s)",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "CD-params",
+            "label" : "List of columns",
+            "description": "Columns to be dropped separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.CD"
+        }
+    ],
     "resourceKeys" : []
 }

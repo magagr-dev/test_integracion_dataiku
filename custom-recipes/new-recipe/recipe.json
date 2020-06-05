@@ -38,8 +38,7 @@
         {
             "name": "CCD-params",
             "label" : "Threshold",
-            "type":  "FRACTION",
-            "defaultValue": 0.9,
+            "type":  "number",
             "visibilityCondition" : "model.CCD"
         },
         {
@@ -51,8 +50,7 @@
         {
             "name": "LVCD-params",
             "label" : "Threshold",
-            "type":  "FRACTION",
-            "defaultValue": 0.01,
+            "type":  "number",
             "visibilityCondition" : "model.LVCD"
         },
         {

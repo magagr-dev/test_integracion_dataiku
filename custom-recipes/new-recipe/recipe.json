@@ -1,6 +1,6 @@
 {
     "meta" : {
-        "label" : "My custom recipe",
+        "label" : "Data wrangling reusable component",
         "icon" : "icon-puzzle-piece"
     },
 

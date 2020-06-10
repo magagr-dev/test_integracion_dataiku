@@ -46,7 +46,7 @@
             "name": "CCD-order",
             "label" : "Application order",
             "description": "Input the order in which you want to apply the transform(s)",
-            "type":  "UINT32",
+            "type":  "DOUBLE",
             "visibilityCondition" : "model.CCD"
         },
         {
@@ -66,7 +66,7 @@
             "name": "LVCD-order",
             "label" : "Application order",
             "description": "Input the order in which you want to apply the transform(s)",
-            "type":  "UINT32",
+            "type":  "DOUBLE",
             "visibilityCondition" : "model.LVCD"
         },
         {
@@ -86,7 +86,7 @@
             "name": "CD-order",
             "label" : "Application order",
             "description": "Input the order in which you want to apply the transform(s)",
-            "type":  "UINT32",
+            "type":  "DOUBLE",
             "visibilityCondition" : "model.CD"
         }
     ],

@@ -67,7 +67,7 @@
             "label" : "Application order",
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "INTEGER",
-            "visibilityCondition" : "model.CCD"
+            "visibilityCondition" : "model.LVCD"
         },
         {
             "name": "CD",
@@ -87,7 +87,7 @@
             "label" : "Application order",
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "INTEGER",
-            "visibilityCondition" : "model.CCD"
+            "visibilityCondition" : "model.CD"
         }
     ],
     "resourceKeys" : []

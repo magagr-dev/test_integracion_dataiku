@@ -2,6 +2,7 @@ from dataxform import CorrelatedColumnDropper, LowVarianceColumnDropper, DataFra
     ColumnDropper
 
 import pandas as pd
+import dataikuapi as dataiku
 from sklearn.datasets import load_boston
 from sklearn.pipeline import make_pipeline
 

@@ -6,8 +6,8 @@ from sklearn.datasets import load_boston
 from sklearn.pipeline import make_pipeline
 
 # get recipe.json elements values
-input_dataset = dataiku.Dataset(dataiku.customrecipe.get_input_names_for_role("inputDataset")[0])
-transformed_dataset = dataiku.Dataset(dataiku.customrecipe.get_output_names_for_role("transformedDataset")[0])
+input_dataset = dataiku.Dataset(dataiku.get_input_names_for_role("inputDataset")[0])
+transformed_dataset = dataiku.Dataset(dataiku.get_output_names_for_role("transformedDataset")[0])
 recipe_config = dataiku.customrecipe.get_recipe_config()
 
 # create the output dataset as a copy

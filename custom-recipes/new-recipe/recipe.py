@@ -15,8 +15,8 @@ recipe_config = get_recipe_config()
 transformed_dataset = input_dataset.get_dataframe()
 
 # get the transformations selected and the order they have to be applied
-apply_trans = list(trans for trans, select in recipe_config.items() if select == True)
-trans_order = list(trans+'-order' for trans in apply_trans)
+apply_trans = list(trans for trans, select in recipe_config.items() if select == True and len(trans.split('-')) == 1)
+trans_order = {trans: value for trans,value in transforms.items() if "order" in trans and trans.split('-')[0] in apply_trans}
 
 def switch_transform(transform):
   """
@@ -47,5 +47,5 @@ for i,trans in enumerate(order_transforms(trans_order)):
         params = list(map(str.strip, recipe_config[key].split(";")))
     else:
         params = recipe_config[key]
-    apply_transform = switch_transform(trans, params)
-    transformed_dataset = apply_transform(transformed_dataset)
+    apply_transform = switch_transform(trans)
+    transformed_dataset = apply_transform(transformed_dataset, params)

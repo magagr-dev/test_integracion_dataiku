@@ -12,7 +12,7 @@ transformed_dataset = dataiku.Dataset(get_output_names_for_role("transformedData
 recipe_config = get_recipe_config()
 
 # create the output dataset as a copy
-transformed_dataset = input_dataset.copy()
+transformed_dataset = input_dataset.get_dataframe()
 
 # get the transformations selected and the order they have to be applied
 apply_trans = list(trans for trans, select in recipe_config.items() if select == True)

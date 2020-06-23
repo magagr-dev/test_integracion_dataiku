@@ -48,6 +48,6 @@ for i,trans in enumerate(order_transforms(trans_order)):
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    transformed_df = apply_transform(params).fit(transformed_df)
+    transformed_df = apply_transform(params).fit_transform(transformed_df)
 
 output_dataset.write_with_schema(transformed_df)

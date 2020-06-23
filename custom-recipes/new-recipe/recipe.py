@@ -8,11 +8,11 @@ from sklearn.pipeline import make_pipeline
 
 # get recipe.json elements values
 input_dataset = dataiku.Dataset(get_input_names_for_role("inputDataset")[0])
-transformed_dataset = dataiku.Dataset(get_output_names_for_role("transformedDataset")[0])
+output_dataset = dataiku.Dataset(get_output_names_for_role("transformedDataset")[0])
 recipe_config = get_recipe_config()
 
 # create the output dataset as a copy
-transformed_dataset = input_dataset.get_dataframe()
+transformed_df = input_dataset.get_dataframe()
 
 # get the transformations selected and the order they have to be applied
 apply_trans = list(trans for trans, select in recipe_config.items() if select == True and len(trans.split('-')) == 1)
@@ -48,4 +48,6 @@ for i,trans in enumerate(order_transforms(trans_order)):
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    transformed_dataset = apply_transform(params).fit(transformed_dataset)
+    transformed_df = apply_transform(params).fit(transformed_df)
+
+output_dataset.write_with_schema(transformed_df)

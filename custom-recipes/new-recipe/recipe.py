@@ -48,4 +48,4 @@ for i,trans in enumerate(order_transforms(trans_order)):
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    transformed_dataset = apply_transform(transformed_dataset, [params])
+    transformed_dataset = apply_transform(params).fit(transformed_dataset)

@@ -1,13 +1,10 @@
 {
   "id": "test-plugin",
   "meta": {
-    "label": "Test Plugin",
-    "description": "Test construcción plugin desde repositorio GIT",
+    "label": "KSMF Plugin",
+    "description": "Dataiku plugin providing the components developed in Knowledge Sharing - Model Factory project",
     "params": [
       {
-          "name": "row",
-           "label": "row",
-          "description": "Row processed"
       }
     ]
   }

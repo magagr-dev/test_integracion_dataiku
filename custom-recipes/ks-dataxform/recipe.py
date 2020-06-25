@@ -1,5 +1,4 @@
-from dataxform import CorrelatedColumnDropper, LowVarianceColumnDropper, DataFrameScaler, DataFrameNormalization, \
-    ColumnDropper
+from dataxform import *
 
 import pandas as pd
 from dataiku.customrecipe import *
@@ -29,7 +28,10 @@ def switch_transform(transform):
     "LVCD": LowVarianceColumnDropper,
     "DFS": DataFrameScaler,
     "DFN": DataFrameNormalization,
-    "CD": ColumnDropper
+    "CD": ColumnDropper,
+    "CS": ColumnSelector,
+    "UC": UnicodeConversion,
+    "YJT": YJTransformer
   }
   return switcher.get(transform, "Invalid transformation")
 

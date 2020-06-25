@@ -1,0 +1,194 @@
+{
+    "meta" : {
+        "label" : "Data wrangling reusable component",
+        "icon" : "icon-puzzle-piece"
+    },
+
+    "kind" : "PYTHON",
+
+    "selectableFromDataset": "main",
+
+    "inputRoles" : [
+        {
+            "name": "inputDataset",
+            "label": "Input dataset",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+
+    "outputRoles" : [
+        {
+            "name": "transformedDataset",
+            "label": "Processed dataset",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": true
+        }
+    ],
+
+    "params": [
+        {
+            "name": "CCD",
+            "label": "Drop correlated columns",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "CCD-params",
+            "label" : "Threshold",
+            "type":  "DOUBLE",
+            "defaultValue": 0.9,
+            "visibilityCondition" : "model.CCD"
+        },
+        {
+            "name": "CCD-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.CCD"
+        },
+        {
+            "name": "LVCD",
+            "label": "Drop column(s) with low variance",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "LVCD-params",
+            "label" : "Threshold",
+            "type":  "DOUBLE",
+            "defaultValue": 0.01,
+            "visibilityCondition" : "model.LVCD"
+        },
+        {
+            "name": "LVCD-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.LVCD"
+        },
+        {
+            "name": "CD",
+            "label": "Drop column(s)",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "CD-params",
+            "label" : "List of columns",
+            "description": "Columns to be dropped separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.CD"
+        },
+        {
+            "name": "CD-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.CD"
+        },
+        {
+            "name": "CS",
+            "label": "Select column(s)",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "CS-params",
+            "label" : "List of columns",
+            "description": "Selected columns separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.CS"
+        },
+        {
+            "name": "CS-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.CS"
+        },
+        {
+            "name": "DFN",
+            "label": "Dataframe normalization",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "DFN-params",
+            "label" : "List of columns",
+            "description": "Columns to normalize separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.DFN"
+        },
+        {
+            "name": "DFN-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.DFN"
+        },
+        {
+            "name": "DFS",
+            "label": "Dataframe scaler",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "DFS-params",
+            "label" : "List of columns",
+            "description": "Columns to scale separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.DFS"
+        },
+        {
+            "name": "DFS-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.DFS"
+        },
+        {
+            "name": "UC",
+            "label": "Unicode Conversion",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "UC-params",
+            "label" : "List of columns",
+            "description": "Affected columns separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.UC"
+        },
+        {
+            "name": "UC-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.UC"
+        },
+        {
+            "name": "YJT",
+            "label": "Yeo-Johnson Transformation",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "YJT-params",
+            "label" : "List of columns",
+            "description": "Affected columns separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.YJT"
+        },
+        {
+            "name": "YJT-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.YJT"
+        }
+    ],
+    "resourceKeys" : []
+}

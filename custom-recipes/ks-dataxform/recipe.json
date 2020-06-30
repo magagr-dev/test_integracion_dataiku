@@ -110,6 +110,12 @@
             "visibilityCondition" : "model.CS"
         },
         {
+            "name": "CS-viz",
+            "label" : "Add available visualization",
+            "type":  "BOOLEAN",
+            "visibilityCondition" : "model.CS"
+        },
+        {
             "name": "DFN",
             "label": "Dataframe normalization",
             "type": "BOOLEAN",

@@ -45,11 +45,12 @@ def order_transforms(transform_order):
 
 for i,trans in enumerate(order_transforms(trans_order)):
     key = trans + '-params'
+    viz = trans + '-viz'
     if isinstance(recipe_config[key], str):
         params = list(map(str.strip, recipe_config[key].split(";")))
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    transformed_df = apply_transform(params).fit_transform(transformed_df)
+    transformed_df = apply_transform(params,recipe_config[viz]).fit_transform(transformed_df)
 
 output_dataset.write_with_schema(transformed_df)

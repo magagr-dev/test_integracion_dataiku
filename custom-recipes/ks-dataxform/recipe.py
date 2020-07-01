@@ -54,6 +54,6 @@ for i, trans in enumerate(order_transforms(trans_order)):
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
     transformed_df = apply_transform(params, recipe_config[viz]).fit_transform(transformed_df)
-    insight.save_figure(trans)
+    insights.save_figure(trans)
 
 output_dataset.write_with_schema(transformed_df)

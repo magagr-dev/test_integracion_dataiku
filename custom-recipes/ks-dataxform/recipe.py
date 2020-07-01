@@ -1,9 +1,7 @@
 from dataxform import *
 
-import pandas as pd
 from dataiku.customrecipe import *
-from sklearn.datasets import load_boston
-from sklearn.pipeline import make_pipeline
+from dataiku import insights
 
 # get recipe.json elements values
 input_dataset = dataiku.Dataset(get_input_names_for_role("inputDataset")[0])
@@ -14,36 +12,40 @@ recipe_config = get_recipe_config()
 transformed_df = input_dataset.get_dataframe()
 
 # get the transformations selected and the order they have to be applied
-apply_trans = list(trans for trans, select in recipe_config.items() if select == True and len(trans.split('-')) == 1)
-trans_order = {trans: value for trans,value in recipe_config.items() if "order" in trans and trans.split('-')[0] in apply_trans}
+apply_trans = list(trans for trans, select in recipe_config.items() if select and len(trans.split('-')) == 1)
+trans_order = {trans: value for trans, value in recipe_config.items() if
+               "order" in trans and trans.split('-')[0] in apply_trans}
+
 
 def switch_transform(transform):
-  """
+    """
     Function to call the developed transformations based on the interface selections
     :param transform: transformation to apply
     :return: selected transformation function
   """
-  switcher = {
-    "CCD": CorrelatedColumnDropper,
-    "LVCD": LowVarianceColumnDropper,
-    "DFS": DataFrameScaler,
-    "DFN": DataFrameNormalization,
-    "CD": ColumnDropper,
-    "CS": ColumnSelector,
-    "UC": UnicodeConversion,
-    "YJT": YJTransformer
-  }
-  return switcher.get(transform, "Invalid transformation")
+    switcher = {
+        "CCD": CorrelatedColumnDropper,
+        "LVCD": LowVarianceColumnDropper,
+        "DFS": DataFrameScaler,
+        "DFN": DataFrameNormalization,
+        "CD": ColumnDropper,
+        "CS": ColumnSelector,
+        "UC": UnicodeConversion,
+        "YJT": YJTransformer
+    }
+    return switcher.get(transform, "Invalid transformation")
+
 
 def order_transforms(transform_order):
-   """
+    """
     Function to order the transformations to apply based on the interface selections
     :param transform_order: dictionary with the transformation and the preference order
     :return: dictionary with the transformations sorted
    """
-   return {key.split('-')[0]: value for key,value in sorted(transform_order.items(), key = lambda item: item[1])}
+    return {key.split('-')[0]: value for key, value in sorted(transform_order.items(), key=lambda item: item[1])}
 
-for i,trans in enumerate(order_transforms(trans_order)):
+
+for i, trans in enumerate(order_transforms(trans_order)):
     key = trans + '-params'
     viz = trans + '-viz'
     if isinstance(recipe_config[key], str):
@@ -51,6 +53,7 @@ for i,trans in enumerate(order_transforms(trans_order)):
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    transformed_df = apply_transform(params,recipe_config[viz]).fit_transform(transformed_df)
+    transformed_df = apply_transform(params, recipe_config[viz]).fit_transform(transformed_df)
+    insight.save_figure(trans)
 
 output_dataset.write_with_schema(transformed_df)

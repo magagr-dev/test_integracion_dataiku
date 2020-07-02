@@ -31,7 +31,7 @@
     "params": [
         {
             "name": "CCD",
-            "label": "Drop correlated columns",
+            "label": "- Drop correlated columns",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -51,7 +51,7 @@
         },
         {
             "name": "LVCD",
-            "label": "Drop column(s) with low variance",
+            "label": "- Drop column(s) with low variance",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -71,7 +71,7 @@
         },
         {
             "name": "CD",
-            "label": "Drop column(s)",
+            "label": "- Drop column(s)",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -91,13 +91,13 @@
         },
         {
             "name": "CD-viz",
-            "label" : "\t\t Add available visualization",
+            "label" : "Add available visualization",
             "type":  "BOOLEAN",
             "visibilityCondition" : "model.CD"
         },
         {
             "name": "CS",
-            "label": "Select column(s)",
+            "label": "- Select column(s)",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -123,7 +123,7 @@
         },
         {
             "name": "DFN",
-            "label": "Dataframe normalization",
+            "label": "- Dataframe normalization",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -143,7 +143,7 @@
         },
         {
             "name": "DFS",
-            "label": "Dataframe scaler",
+            "label": "- Dataframe scaler",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -163,7 +163,7 @@
         },
         {
             "name": "UC",
-            "label": "Unicode Conversion",
+            "label": "- Unicode Conversion",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -183,7 +183,7 @@
         },
         {
             "name": "YJT",
-            "label": "Yeo-Johnson Transformation",
+            "label": "- Yeo-Johnson Transformation",
             "type": "BOOLEAN",
             "defaultValue": false
         },

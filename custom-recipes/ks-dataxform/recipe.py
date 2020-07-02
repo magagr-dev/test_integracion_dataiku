@@ -57,6 +57,6 @@ for i, trans in enumerate(order_transforms(trans_order)):
 
 print(pipeline_features)
 transformed_df = DataXForm.apply_pipeline(pipeline_features,transformed_df)
-insights.save_figure(trans +'-fig')
+insights.save_figure('-fig')
 
 output_dataset.write_with_schema(transformed_df)

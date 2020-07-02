@@ -2,6 +2,7 @@ from dataxform import *
 
 from dataiku.customrecipe import *
 from dataiku import insights
+from sklearn.pipeline import Pipeline
 
 # get recipe.json elements values
 input_dataset = dataiku.Dataset(get_input_names_for_role("inputDataset")[0])
@@ -44,7 +45,7 @@ def order_transforms(transform_order):
    """
     return {key.split('-')[0]: value for key, value in sorted(transform_order.items(), key=lambda item: item[1])}
 
-
+steps = []
 for i, trans in enumerate(order_transforms(trans_order)):
     key = trans + '-params'
     viz = trans + '-viz'
@@ -53,10 +54,10 @@ for i, trans in enumerate(order_transforms(trans_order)):
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    pipeline_features = DataXForm.define_pipeline(apply_transform(params, recipe_config[viz]))
+    steps += [(apply_transform.__name__.lower(), apply_transform(params, recipe_config[viz]))]
 
-print(pipeline_features)
-transformed_df = DataXForm.apply_pipeline(pipeline_features,transformed_df)
+pipeline_features = Pipeline(steps)
+transformed_df = DataXForm.apply_pipeline(pipeline_features, transformed_df)
 insights.save_figure('-fig')
 
 output_dataset.write_with_schema(transformed_df)

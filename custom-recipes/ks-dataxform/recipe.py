@@ -54,8 +54,8 @@ for i, trans in enumerate(order_transforms(trans_order)):
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
     pipeline_features = DataXForm.define_pipeline(apply_transform(params, recipe_config[viz]))
-    transformed_df = DataXForm.apply_pipeline(pipeline_features,transformed_df)
-    if recipe_config[viz]:
-        insights.save_figure(trans +'-fig')
+
+transformed_df = DataXForm.apply_pipeline(pipeline_features,transformed_df)
+insights.save_figure(trans +'-fig')
 
 output_dataset.write_with_schema(transformed_df)

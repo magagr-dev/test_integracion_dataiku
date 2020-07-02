@@ -29,6 +29,7 @@
     ],
 
     "params": [
+        "CCD": [
         {
             "name": "CCD",
             "label": "- Drop correlated columns",
@@ -48,7 +49,9 @@
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "DOUBLE",
             "visibilityCondition" : "model.CCD"
-        },
+        }
+        ],
+        "LVCD": [
         {
             "name": "LVCD",
             "label": "- Drop column(s) with low variance",
@@ -68,7 +71,7 @@
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "DOUBLE",
             "visibilityCondition" : "model.LVCD"
-        },
+        }],
         {
             "name": "CD",
             "label": "- Drop column(s)",

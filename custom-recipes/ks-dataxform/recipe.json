@@ -77,21 +77,21 @@
         },
         {
             "name": "CD-params",
-            "label" : "List of columns",
+            "label" : "     List of columns",
             "description": "Columns to be dropped separated by ;",
             "type":  "STRING",
             "visibilityCondition" : "model.CD"
         },
         {
             "name": "CD-order",
-            "label" : "Application order",
+            "label" : "     Application order",
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "DOUBLE",
             "visibilityCondition" : "model.CD"
         },
         {
             "name": "CD-viz",
-            "label" : "Add available visualization",
+            "label" : "     Add available visualization",
             "type":  "BOOLEAN",
             "visibilityCondition" : "model.CD"
         },

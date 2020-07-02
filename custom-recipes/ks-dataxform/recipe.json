@@ -90,6 +90,12 @@
             "visibilityCondition" : "model.CD"
         },
         {
+            "name": "CD-viz",
+            "label" : "Add available visualization",
+            "type":  "BOOLEAN",
+            "visibilityCondition" : "model.CD"
+        },
+        {
             "name": "CS",
             "label": "Select column(s)",
             "type": "BOOLEAN",

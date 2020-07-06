@@ -1,5 +1,5 @@
 {
-  "id": "test-plugin",
+  "id": "ksmfp-plugin",
   "meta": {
     "label": "KSMF Plugin",
     "description": "Dataiku plugin providing the components developed in Knowledge Sharing - Model Factory project",

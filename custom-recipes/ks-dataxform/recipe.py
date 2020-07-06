@@ -1,4 +1,4 @@
-from dataxform import *
+from ks-dataxform.dataxform import *
 
 from dataiku.customrecipe import *
 from dataiku import insights

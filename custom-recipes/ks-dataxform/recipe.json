@@ -1,12 +1,11 @@
 {
     "meta" : {
         "label" : "Data wrangling reusable component",
-        "icon" : "icon-puzzle-piece"
+        "icon" : "icon-puzzle-piece",
+        "description": "Data wrangling reusable component"
     },
 
     "kind" : "PYTHON",
-
-    "selectableFromDataset": "main",
 
     "inputRoles" : [
         {

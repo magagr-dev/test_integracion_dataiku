@@ -1,11 +1,11 @@
 {
   "id": "ksmfp-plugin",
+  "version": "0.0.1",
   "meta": {
     "label": "KSMF Plugin",
     "description": "Dataiku plugin providing the components developed in Knowledge Sharing - Model Factory project",
-    "params": [
-      {
-      }
-    ]
+    "author": "SDG-ksmfp",
+    "icon": "icon-puzzle-piece",
+    "url": "https://sourcecode.jnj.com/projects/ASX-NCSC/repos/ks-dataiku"
   }
 }

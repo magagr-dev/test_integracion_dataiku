@@ -54,7 +54,10 @@ for i, trans in enumerate(order_transforms(trans_order)):
     else:
         params = recipe_config[key]
     apply_transform = switch_transform(trans)
-    steps += [(apply_transform.__name__.lower(), apply_transform(params, recipe_config[viz]))]
+    try:
+        steps += [(apply_transform.__name__.lower(), apply_transform(params, recipe_config[viz]))]
+    except KeyError:
+        raise KeyError("Transformation %s is not available" % apply_transform.__name__)
 
 pipeline_features = Pipeline(steps)
 transformed_df = DataXForm.apply_pipeline(pipeline_features, transformed_df)

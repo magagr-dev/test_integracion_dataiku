@@ -30,6 +30,11 @@
 
     "params": [
         {
+            "name": "Transform-section",
+            "label": "Available transformacions",
+            "type": "SEPARATOR"
+        },
+        {
             "name": "CCD",
             "label": "Drop correlated columns",
             "type": "BOOLEAN",
@@ -200,6 +205,11 @@
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "DOUBLE",
             "visibilityCondition" : "model.YJT"
+        },
+        {
+            "name": "Viz-section",
+            "label": "Available visualizations",
+            "type": "SEPARATOR"
         }
     ],
     "resourceKeys" : []

@@ -21,8 +21,13 @@ trans_order = {trans: value for trans, value in recipe_config.items() if
 def switch_transform(transform):
     """
     Function to call the developed transformations based on the interface selections
-    :param transform: transformation to apply
-    :return: selected transformation function
+
+
+    Parameters:
+        transform (str): transformation to apply
+
+    Returns:
+        (class) selected transformation class
   """
     switcher = {
         "CCD": CorrelatedColumnDropper,
@@ -40,8 +45,12 @@ def switch_transform(transform):
 def order_transforms(transform_order):
     """
     Function to order the transformations to apply based on the interface selections
-    :param transform_order: dictionary with the transformation and the preference order
-    :return: dictionary with the transformations sorted
+
+    Parameter:
+        transform_order (dict): dictionary with the transformation and the preference order
+
+    Returns:
+        (dict) dictionary with the transformations sorted
    """
     return {key.split('-')[0]: value for key, value in sorted(transform_order.items(), key=lambda item: item[1])}
 

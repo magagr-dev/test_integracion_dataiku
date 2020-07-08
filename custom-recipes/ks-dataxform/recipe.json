@@ -200,40 +200,40 @@
             "type": "SEPARATOR"
         },
         {
-            "name": "viz-CorMat",
+            "name": "vizCorMat",
             "label" : "Correlation Matrix",
             "type":  "BOOLEAN"
         },
         {
-            "name": "viz-CorMat-param",
+            "name": "vizCorMat-param",
             "label" : "List of columns",
             "description": "List of columns separated by ;",
             "type":  "STRING",
-            "visibilityCondition" : "model.viz-CorMat"
+            "visibilityCondition" : "model.vizCorMat"
         },
         {
-            "name": "viz-Dist",
+            "name": "vizDist",
             "label" : "Distribution",
             "type":  "BOOLEAN"
         },
         {
-            "name": "viz-Dist-param",
+            "name": "vizDist-param",
             "label" : "List of columns",
             "description": "List of columns separated by ;",
             "type":  "STRING",
-            "visibilityCondition" : "model.viz-Dist"
+            "visibilityCondition" : "model.vizDist"
         },
         {
-            "name": "viz-PairPlot",
+            "name": "vizPairPlot",
             "label" : "Pair Plot",
             "type":  "BOOLEAN"
         },
         {
-            "name": "viz-PairPlot-param",
+            "name": "vizPairPlot-param",
             "label" : "List of columns",
             "description": "List of columns separated by ;",
             "type":  "STRING",
-            "visibilityCondition" : "model.viz-PairPlot"
+            "visibilityCondition" : "model.vizPairPlot"
         }
     ],
     "resourceKeys" : []

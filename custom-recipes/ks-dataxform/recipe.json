@@ -31,7 +31,7 @@
     "params": [
         {
             "name": "Transform-section",
-            "label": "Available transformacions",
+            "label": "STEPS",
             "type": "SEPARATOR"
         },
         {
@@ -95,12 +95,6 @@
             "visibilityCondition" : "model.CD"
         },
         {
-            "name": "CD-viz",
-            "label" : "Add available visualization",
-            "type":  "BOOLEAN",
-            "visibilityCondition" : "model.CD"
-        },
-        {
             "name": "CS",
             "label": "Select column(s)",
             "type": "BOOLEAN",
@@ -118,12 +112,6 @@
             "label" : "Application order",
             "description": "Input the order in which you want to apply the transform(s)",
             "type":  "DOUBLE",
-            "visibilityCondition" : "model.CS"
-        },
-        {
-            "name": "CS-viz",
-            "label" : "Add available visualization",
-            "type":  "BOOLEAN",
             "visibilityCondition" : "model.CS"
         },
         {
@@ -208,8 +196,44 @@
         },
         {
             "name": "Viz-section",
-            "label": "Available visualizations",
+            "label": "VISUALIZATIONS",
             "type": "SEPARATOR"
+        },
+        {
+            "name": "viz-CorMat",
+            "label" : "Correlation Matrix",
+            "type":  "BOOLEAN"
+        },
+        {
+            "name": "viz-CorMat-param",
+            "label" : "List of columns",
+            "description": "List of columns separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.viz-CorMat"
+        },
+        {
+            "name": "viz-Dist",
+            "label" : "Distribution",
+            "type":  "BOOLEAN"
+        },
+        {
+            "name": "viz-Dist-param",
+            "label" : "List of columns",
+            "description": "List of columns separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.viz-Dist"
+        },
+        {
+            "name": "viz-PairPlot",
+            "label" : "Pair Plot",
+            "type":  "BOOLEAN"
+        },
+        {
+            "name": "viz-PairPlot-param",
+            "label" : "List of columns",
+            "description": "List of columns separated by ;",
+            "type":  "STRING",
+            "visibilityCondition" : "model.viz-PairPlot"
         }
     ],
     "resourceKeys" : []

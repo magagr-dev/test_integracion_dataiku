@@ -182,7 +182,7 @@
         },
         {
             "name": "YJT-params",
-            "label" : "\t List of columns",
+            "label" : ".\t List of columns",
             "description": "Affected columns separated by ;",
             "type":  "STRING",
             "visibilityCondition" : "model.YJT"

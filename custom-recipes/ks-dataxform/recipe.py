@@ -1,8 +1,8 @@
 from ks_dataxform.dataxform import *
+from utils.TransformationUtils import *
 
 from dataiku.customrecipe import *
 from dataiku import insights
-from sklearn.pipeline import Pipeline
 
 # get recipe.json elements values
 input_dataset = dataiku.Dataset(get_input_names_for_role("inputDataset")[0])
@@ -13,63 +13,15 @@ recipe_config = get_recipe_config()
 transformed_df = input_dataset.get_dataframe()
 
 # get the transformations selected and the order they have to be applied
-apply_trans = list(trans for trans, select in recipe_config.items() if select and len(trans.split('-')) == 1)
-trans_order = {trans: value for trans, value in recipe_config.items() if
-               "order" in trans and trans.split('-')[0] in apply_trans}
+apply_trans = get_selected_transforms(recipe_config)
+trans_sorting = get_sorting(recipe_config, apply_trans)
+plot_viz = get_selected_visualizations(recipe_config)
 
+if apply_trans:
+    pipeline_features = pipeline_features(recipe_config, trans_sorting)
+    transformed_df = DataXForm.apply_pipeline(pipeline_features, transformed_df)
 
-def switch_transform(transform):
-    """
-    Function to call the developed transformations based on the interface selections
-
-
-    Parameters:
-        transform (str): transformation to apply
-
-    Returns:
-        (class) selected transformation class
-  """
-    switcher = {
-        "CCD": CorrelatedColumnDropper,
-        "LVCD": LowVarianceColumnDropper,
-        "DFS": DataFrameScaler,
-        "DFN": DataFrameNormalization,
-        "CD": ColumnDropper,
-        "CS": ColumnSelector,
-        "UC": UnicodeConversion,
-        "YJT": YJTransformer
-    }
-    return switcher.get(transform, "Invalid transformation")
-
-
-def order_transforms(transform_order):
-    """
-    Function to order the transformations to apply based on the interface selections
-
-    Parameter:
-        transform_order (dict): dictionary with the transformation and the preference order
-
-    Returns:
-        (dict) dictionary with the transformations sorted
-   """
-    return {key.split('-')[0]: value for key, value in sorted(transform_order.items(), key=lambda item: item[1])}
-
-steps = []
-for i, trans in enumerate(order_transforms(trans_order)):
-    key = trans + '-params'
-    viz = trans + '-viz'
-    if isinstance(recipe_config[key], str):
-        params = list(map(str.strip, recipe_config[key].split(";")))
-    else:
-        params = recipe_config[key]
-    apply_transform = switch_transform(trans)
-    try:
-        steps += [(apply_transform.__name__.lower(), apply_transform(params, recipe_config[viz]))]
-    except KeyError:
-        raise KeyError("Transformation %s is not available" % apply_transform.__name__)
-
-pipeline_features = Pipeline(steps)
-transformed_df = DataXForm.apply_pipeline(pipeline_features, transformed_df)
-insights.save_figure('-fig')
+if plot_viz:
+    insights.save_figure('-fig')
 
 output_dataset.write_with_schema(transformed_df)

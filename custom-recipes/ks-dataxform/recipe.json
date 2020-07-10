@@ -84,7 +84,7 @@
             "name": "CD-params",
             "label" : "List of columns",
             "description": "Columns to be dropped separated by ;",
-            "type":  "COLUMNS",
+            "type":  "STRING",
             "visibilityCondition" : "model.CD"
         },
         {
@@ -104,7 +104,7 @@
             "name": "CS-params",
             "label" : "List of columns",
             "description": "Selected columns separated by ;",
-            "type":  "COLUMNS",
+            "type":  "STRING",
             "visibilityCondition" : "model.CS"
         },
         {

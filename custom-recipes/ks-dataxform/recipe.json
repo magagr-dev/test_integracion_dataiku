@@ -35,56 +35,44 @@
             "type": "SEPARATOR"
         },
         {
-            "name": "CCD-section",
-            "params":
-            [
-                {
-                    "name": "CCD",
-                    "label": "Drop correlated columns",
-                    "type": "BOOLEAN",
-                    "defaultValue": false
-                },
-                {
-                    "name": "CCD-params",
-                    "label" : "Threshold",
-                    "type":  "DOUBLE",
-                    "defaultValue": 0.9,
-                    "visibilityCondition" : "model.CCD"
-                },
-                {
-                    "name": "CCD-order",
-                    "label" : "Application order",
-                    "description": "Input the order in which you want to apply the transform(s)",
-                    "type":  "DOUBLE",
-                    "visibilityCondition" : "model.CCD"
-                }
-            ]
+            "name": "CCD",
+            "label": "Drop correlated columns",
+            "type": "BOOLEAN",
+            "defaultValue": false
         },
         {
-            "name": "LVCD-section",
-            "params":
-            [
-                {
-                    "name": "LVCD",
-                    "label": "Drop column(s) with low variance",
-                    "type": "BOOLEAN",
-                    "defaultValue": false
-                },
-                {
-                    "name": "LVCD-params",
-                    "label" : "Threshold",
-                    "type":  "DOUBLE",
-                    "defaultValue": 0.01,
-                    "visibilityCondition" : "model.LVCD"
-                },
-                {
-                    "name": "LVCD-order",
-                    "label" : "Application order",
-                    "description": "Input the order in which you want to apply the transform(s)",
-                    "type":  "DOUBLE",
-                    "visibilityCondition" : "model.LVCD"
-                }
-            ]
+            "name": "CCD-params",
+            "label" : "Threshold",
+            "type":  "DOUBLE",
+            "defaultValue": 0.9,
+            "visibilityCondition" : "model.CCD"
+        },
+        {
+            "name": "CCD-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.CCD"
+        },
+        {
+            "name": "LVCD",
+            "label": "Drop column(s) with low variance",
+            "type": "BOOLEAN",
+            "defaultValue": false
+        },
+        {
+            "name": "LVCD-params",
+            "label" : "Threshold",
+            "type":  "DOUBLE",
+            "defaultValue": 0.01,
+            "visibilityCondition" : "model.LVCD"
+        },
+        {
+            "name": "LVCD-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.LVCD"
         },
         {
             "name": "CD",
@@ -96,7 +84,7 @@
             "name": "CD-params",
             "label" : "List of columns",
             "description": "Columns to be dropped separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
             "visibilityCondition" : "model.CD"
         },
         {

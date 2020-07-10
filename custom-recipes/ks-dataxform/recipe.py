@@ -1,5 +1,6 @@
 from ks_dataxform.dataxform import *
 from TransformationUtils import *
+from VisualizationUtils import *
 
 from dataiku.customrecipe import *
 from dataiku import insights

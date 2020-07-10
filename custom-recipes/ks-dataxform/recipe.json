@@ -83,8 +83,8 @@
         {
             "name": "CD-params",
             "label" : "List of columns",
-            "description": "Columns to be dropped separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.CD"
         },
         {
@@ -103,7 +103,6 @@
         {
             "name": "CS-params",
             "label" : "List of columns",
-            "description": "Selected columns separated by ;",
             "type":  "COLUMNS",
             "columnRole": "inputDataset",
             "visibilityCondition" : "model.CS"
@@ -124,8 +123,8 @@
         {
             "name": "DFN-params",
             "label" : "List of columns",
-            "description": "Columns to normalize separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.DFN"
         },
         {
@@ -144,8 +143,8 @@
         {
             "name": "DFS-params",
             "label" : "List of columns",
-            "description": "Columns to scale separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.DFS"
         },
         {
@@ -164,8 +163,8 @@
         {
             "name": "UC-params",
             "label" : "List of columns",
-            "description": "Affected columns separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.UC"
         },
         {
@@ -184,8 +183,8 @@
         {
             "name": "YJT-params",
             "label" : "List of columns",
-            "description": "Affected columns separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.YJT"
         },
         {
@@ -208,8 +207,8 @@
         {
             "name": "vizCorMat-param",
             "label" : "List of columns",
-            "description": "List of columns separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.vizCorMat"
         },
         {
@@ -220,8 +219,8 @@
         {
             "name": "vizDist-param",
             "label" : "List of columns",
-            "description": "List of columns separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.vizDist"
         },
         {
@@ -232,8 +231,8 @@
         {
             "name": "vizPairPlot-param",
             "label" : "List of columns",
-            "description": "List of columns separated by ;",
-            "type":  "STRING",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
             "visibilityCondition" : "model.vizPairPlot"
         }
     ],

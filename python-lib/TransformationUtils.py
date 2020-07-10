@@ -80,10 +80,7 @@ def pipeline_features(recipe_config, trans_sorting):
     steps = []
     for i, trans in enumerate(sort_transforms(trans_sorting)):
         key = trans + '-params'
-        if isinstance(recipe_config[key], str):
-            params = list(map(str.strip, recipe_config[key].split(";")))
-        else:
-            params = recipe_config[key]
+        params = recipe_config[key]
         apply_transform = switch_transform(trans)
         try:
             steps += [(apply_transform.__name__.lower(), apply_transform(params))]

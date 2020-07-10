@@ -35,44 +35,56 @@
             "type": "SEPARATOR"
         },
         {
-            "name": "CCD",
-            "label": "Drop correlated columns",
-            "type": "BOOLEAN",
-            "defaultValue": false
+            "name": "CCD-section",
+            "params":
+            [
+                {
+                    "name": "CCD",
+                    "label": "Drop correlated columns",
+                    "type": "BOOLEAN",
+                    "defaultValue": false
+                },
+                {
+                    "name": "CCD-params",
+                    "label" : "Threshold",
+                    "type":  "DOUBLE",
+                    "defaultValue": 0.9,
+                    "visibilityCondition" : "model.CCD"
+                },
+                {
+                    "name": "CCD-order",
+                    "label" : "Application order",
+                    "description": "Input the order in which you want to apply the transform(s)",
+                    "type":  "DOUBLE",
+                    "visibilityCondition" : "model.CCD"
+                }
+            ]
         },
         {
-            "name": "CCD-params",
-            "label" : "Threshold",
-            "type":  "DOUBLE",
-            "defaultValue": 0.9,
-            "visibilityCondition" : "model.CCD"
-        },
-        {
-            "name": "CCD-order",
-            "label" : "Application order",
-            "description": "Input the order in which you want to apply the transform(s)",
-            "type":  "DOUBLE",
-            "visibilityCondition" : "model.CCD"
-        },
-        {
-            "name": "LVCD",
-            "label": "Drop column(s) with low variance",
-            "type": "BOOLEAN",
-            "defaultValue": false
-        },
-        {
-            "name": "LVCD-params",
-            "label" : "Threshold",
-            "type":  "DOUBLE",
-            "defaultValue": 0.01,
-            "visibilityCondition" : "model.LVCD"
-        },
-        {
-            "name": "LVCD-order",
-            "label" : "Application order",
-            "description": "Input the order in which you want to apply the transform(s)",
-            "type":  "DOUBLE",
-            "visibilityCondition" : "model.LVCD"
+            "name": "LVCD-section",
+            "params":
+            [
+                {
+                    "name": "LVCD",
+                    "label": "Drop column(s) with low variance",
+                    "type": "BOOLEAN",
+                    "defaultValue": false
+                },
+                {
+                    "name": "LVCD-params",
+                    "label" : "Threshold",
+                    "type":  "DOUBLE",
+                    "defaultValue": 0.01,
+                    "visibilityCondition" : "model.LVCD"
+                },
+                {
+                    "name": "LVCD-order",
+                    "label" : "Application order",
+                    "description": "Input the order in which you want to apply the transform(s)",
+                    "type":  "DOUBLE",
+                    "visibilityCondition" : "model.LVCD"
+                }
+            ]
         },
         {
             "name": "CD",
@@ -182,7 +194,7 @@
         },
         {
             "name": "YJT-params",
-            "label" : ".\t List of columns",
+            "label" : "List of columns",
             "description": "Affected columns separated by ;",
             "type":  "STRING",
             "visibilityCondition" : "model.YJT"

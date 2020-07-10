@@ -104,7 +104,7 @@
             "name": "CS-params",
             "label" : "List of columns",
             "description": "Selected columns separated by ;",
-            "type":  "DATASET_COLUMNS",
+            "type":  "STRING",
             "visibilityCondition" : "model.CS"
         },
         {

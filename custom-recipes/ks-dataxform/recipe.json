@@ -41,18 +41,23 @@
             "defaultValue": false
         },
         {
-            "name": "CCD-params",
-            "label" : "Threshold",
-            "type":  "DOUBLE",
-            "defaultValue": 0.9,
-            "visibilityCondition" : "model.CCD"
-        },
-        {
-            "name": "CCD-order",
-            "label" : "Application order",
-            "description": "Input the order in which you want to apply the transform(s)",
-            "type":  "DOUBLE",
-            "visibilityCondition" : "model.CCD"
+          "type": "VerticalLayout",
+          "elements": [
+            {
+                "name": "CCD-params",
+                "label" : "Threshold",
+                "type":  "DOUBLE",
+                "defaultValue": 0.9,
+                "visibilityCondition" : "model.CCD"
+            },
+            {
+                "name": "CCD-order",
+                "label" : "Application order",
+                "description": "Input the order in which you want to apply the transform(s)",
+                "type":  "DOUBLE",
+                "visibilityCondition" : "model.CCD"
+            }
+          ]
         },
         {
             "name": "LVCD",

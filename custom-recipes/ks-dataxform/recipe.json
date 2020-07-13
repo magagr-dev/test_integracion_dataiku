@@ -41,7 +41,7 @@
             "defaultValue": false
         },
         {
-          "type": "VerticalLayout",
+          "type": "VERTICALLAYOUT",
           "elements": [
             {
                 "name": "CCD-params",

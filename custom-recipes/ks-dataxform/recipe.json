@@ -38,9 +38,6 @@
             "name": "CCD",
             "label": "Drop correlated columns",
             "type": "BOOLEAN",
-            "styles": {
-                "definition":  {"bold": 1}
-            },
             "defaultValue": false
         },
         {
@@ -239,5 +236,19 @@
             "visibilityCondition" : "model.vizPairPlot"
         }
     ],
+    "styles": {
+        "definition": [
+            {
+                "name": "boldLabel",
+                "bold": "1"
+            }
+        ],
+        "application": [
+            {
+                "toobject": "BOOLEAN",
+                "styles": "boldLabel"
+            }
+        ]
+    },
     "resourceKeys" : []
 }

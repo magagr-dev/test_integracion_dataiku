@@ -38,27 +38,22 @@
             "name": "CCD",
             "label": "Drop correlated columns",
             "type": "BOOLEAN",
+            "style": "bold",
             "defaultValue": false
         },
         {
-          "type": "VerticalLayout",
-          "elements": [
-            {
-                "name": "CCD-params",
-                "label" : "Threshold",
-                "type":  "DOUBLE",
-                "defaultValue": 0.9,
-                "visibilityCondition" : "model.CCD"
-            },
-            {
-                "name": "CCD-order",
-                "label" : "Application order",
-                "description": "Input the order in which you want to apply the transform(s)",
-                "type":  "DOUBLE",
-                "visibilityCondition" : "model.CCD"
-            }
-          ],
-          "visibilityCondition" : "model.CCD"
+            "name": "CCD-params",
+            "label" : "Threshold",
+            "type":  "DOUBLE",
+            "defaultValue": 0.9,
+            "visibilityCondition" : "model.CCD"
+        },
+        {
+            "name": "CCD-order",
+            "label" : "Application order",
+            "description": "Input the order in which you want to apply the transform(s)",
+            "type":  "DOUBLE",
+            "visibilityCondition" : "model.CCD"
         },
         {
             "name": "LVCD",

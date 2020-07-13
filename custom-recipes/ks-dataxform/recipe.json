@@ -240,13 +240,21 @@
         "definition": [
             {
                 "name": "boldLabel",
-                "bold": "1"
+                "bold": 1
+            },
+            {
+                "name": "italicStyle",
+                "italic": 1
             }
         ],
         "application": [
             {
                 "toobject": "BOOLEAN",
                 "styles": "boldLabel"
+            },
+            {
+                "toobject": "COLUMNS",
+                "styles": "italicStyle"
             }
         ]
     },

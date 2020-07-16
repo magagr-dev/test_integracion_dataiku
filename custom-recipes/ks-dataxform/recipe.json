@@ -36,7 +36,7 @@
         },
         {
             "name": "CCD",
-            "label": "Drop correlated columns",
+            "label": "Drop correlated columns".bold(),
             "type": "BOOLEAN",
             "defaultValue": false
         },

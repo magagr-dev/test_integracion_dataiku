@@ -12,7 +12,8 @@ def get_selected_transforms(recipe_config):
         Returns:
             (list) list of selected transformations
     """
-    return list(trans for trans, select in recipe_config.items() if select and len(trans.split('-')) == 1)
+    return list(trans for trans, select in recipe_config.items() if select and len(trans.split('-')) == 1
+                and "viz" not in trans)
 
 
 def get_sorting(recipe_config, apply_trans):

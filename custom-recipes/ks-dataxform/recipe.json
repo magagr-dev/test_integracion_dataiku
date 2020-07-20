@@ -36,7 +36,7 @@
         },
         {
             "name": "CCD",
-            "label": "\t{Drop correlated columns}",
+            "label": "Drop correlated columns",
             "type": "BOOLEAN",
             "defaultValue": false
         },
@@ -205,10 +205,17 @@
             "type":  "BOOLEAN"
         },
         {
-            "name": "vizCorMat-param",
+            "name": "vizCorMat-cols",
             "label" : "List of columns",
             "type":  "COLUMNS",
             "columnRole": "inputDataset",
+            "visibilityCondition" : "model.vizCorMat"
+        },
+        {
+            "name": "vizCorMat-params",
+            "label" : "Method",
+            "type":  "STRING",
+            "defaultValue": "pearson",
             "visibilityCondition" : "model.vizCorMat"
         },
         {
@@ -217,10 +224,24 @@
             "type":  "BOOLEAN"
         },
         {
-            "name": "vizDist-param",
+            "name": "vizDist-cols",
             "label" : "List of columns",
             "type":  "COLUMNS",
             "columnRole": "inputDataset",
+            "visibilityCondition" : "model.vizDist"
+        },
+        {
+            "name": "vizDist-params",
+            "label" : "Number of plot layout columns",
+            "type":  "DOUBLE",
+            "defaultValue": 2,
+            "visibilityCondition" : "model.vizDist"
+        },
+        {
+            "name": "vizDist-params2",
+            "label" : "Number of plot layout columns",
+            "type":  "DOUBLE",
+            "defaultValue": 2,
             "visibilityCondition" : "model.vizDist"
         },
         {
@@ -229,26 +250,36 @@
             "type":  "BOOLEAN"
         },
         {
-            "name": "vizPairPlot-param",
+            "name": "vizPairPlot-cols",
             "label" : "List of columns",
             "type":  "COLUMNS",
             "columnRole": "inputDataset",
             "visibilityCondition" : "model.vizPairPlot"
+        },
+        {
+            "name": "vizUniqueCount",
+            "label" : "Unique count",
+            "type":  "BOOLEAN"
+        },
+        {
+            "name": "vizUniqueCount-cols",
+            "label" : "List of columns",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
+            "visibilityCondition" : "model.vizUniqueCount"
+        },
+        {
+            "name": "vizFrequency",
+            "label" : "Unique count",
+            "type":  "BOOLEAN"
+        },
+        {
+            "name": "vizFrequency-cols",
+            "label" : "List of columns",
+            "type":  "COLUMNS",
+            "columnRole": "inputDataset",
+            "visibilityCondition" : "model.vizFrequency"
         }
     ],
-    "styles": {
-        "definition": [
-            {
-                "name": "boldLabel",
-                "font-weight": "bold"
-            }
-        ],
-        "application": [
-            {
-                "toobject": "BOOLEAN",
-                "styles": "boldLabel"
-            }
-        ]
-    },
     "resourceKeys" : []
 }

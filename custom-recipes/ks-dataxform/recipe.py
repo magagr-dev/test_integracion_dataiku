@@ -23,6 +23,8 @@ if apply_trans:
     transformed_df = DataXForm.apply_pipeline(pipeline_features, transformed_df)
 
 if plot_viz:
-    insights.save_figure('-fig')
+    for viz in plot_viz:
+        plot_visualization(transformed_df, viz, recipe_config)
+        insights.save_figure( recipe_config[viz].label)
 
 output_dataset.write_with_schema(transformed_df)

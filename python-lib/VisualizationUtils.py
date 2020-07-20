@@ -17,28 +17,25 @@ def get_selected_visualizations(recipe_config):
                 select and len(trans.split('-')) == 1 and "viz" in trans)
 
 
-def switch_visualizations(viz, df, cols, params):
+def switch_visualizations(viz):
     """
         Function to call the developed visualizations based on the interface selections
 
         Parameters
         ---------------
         viz: visualization to plot
-        df: DataFrame containing the data
-        cols: DataFrame's columns to plot
-        params: extra configuration parameters
 
 
         Returns
         ---------------
-        selected visualization class
+        selected visualization function
     """
     switcher = {
-        "vizCorMat": df[cols].visualizations.plot_correlation_matrix(params),
-        "vizDist": df[cols].visualizations.plot_distribution(params),
-        "vizPairPlot": df[cols].visualizations.plot_pair_plot(),
-        "vizUniqueCount": df[cols].visualizations.plot_unique_count(),
-        "vizFrequency": df[cols].visualizations.plot_frequency_count(params)
+        "vizCorMat": [__correlation_matrix, ["-method"]],
+        "vizDist": [__distribution, ["-ncols", "-figsize"]],
+        "vizPairPlot": [__pair_plot, []],
+        "vizUniqueCount": [__unique, []],
+        "vizFrequency": [__frequency, ["-ncols", "-figsize"]]
     }
     return switcher.get(viz, "Invalid visualization")
 
@@ -57,6 +54,55 @@ def plot_visualization(df, viz, recipe_config):
         ---------------
         selected visualization plot image
     """
+    selected_viz, config = switch_visualizations(viz)
     cols = recipe_config[str(viz + '-cols')]
-    params = None
-    switch_visualizations(viz, df, cols, params)
+    params = []
+    for c in config:
+        if "figsize" in c:
+            param = recipe_config[str("vizDist" + c)].replace("(", "").replace(")", "").split(",")
+            tuple_items = []
+            for p in param:
+                tuple_items += [int(p)]
+            params += [tuple(tuple_items)]
+        else:
+            params += [recipe_config[str("vizDist" + c)]]
+    selected_viz(df, cols, params)
+
+
+def __correlation_matrix(df, cols, params):
+    if params:
+        df[cols].visualizations.plot_correlation_matrix(method=params)
+    else:
+        df[cols].visualizations.plot_correlation_matrix()
+
+
+def __distribution(df, cols, params):
+    if len(params) == 2:
+        df[cols].visualizations.plot_distribution(n_cols=params[0], fig_size=params[1])
+    elif len(params) == 1:
+        if isinstance(params[0], int):
+            df[cols].visualizations.plot_distribution(n_cols=params[0])
+        else:
+            df[cols].visualizations.plot_distribution(fig_size=params[0])
+    else:
+        df[cols].visualizations.plot_distribution()
+
+
+def __pair_plot(df, cols, params):
+    df[cols].visualizations.plot_pair_plot()
+
+
+def __unique(df, cols, params):
+    df[cols].visualizations.plot_unique_count()
+
+
+def __frequency(df, cols, params):
+    if len(params) == 2:
+        df[cols].visualizations.plot_frequency_count(n_cols=params[0], fig_size=params[1])
+    elif len(params) == 1:
+        if isinstance(params[0], int):
+            df[cols].visualizations.plot_frequency_count(n_cols=params[0])
+        else:
+            df[cols].visualizations.plot_frequency_count(fig_size=params[0])
+    else:
+        df[cols].visualizations.plot_distribution()

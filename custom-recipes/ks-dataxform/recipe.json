@@ -212,7 +212,7 @@
             "visibilityCondition" : "model.vizCorMat"
         },
         {
-            "name": "vizCorMat-params",
+            "name": "vizCorMat-method",
             "label" : "Method",
             "type":  "STRING",
             "defaultValue": "pearson",
@@ -231,17 +231,17 @@
             "visibilityCondition" : "model.vizDist"
         },
         {
-            "name": "vizDist-params",
+            "name": "vizDist-ncols",
             "label" : "Number of plot layout columns",
             "type":  "DOUBLE",
             "defaultValue": 2,
             "visibilityCondition" : "model.vizDist"
         },
         {
-            "name": "vizDist-params2",
-            "label" : "Number of plot layout columns",
-            "type":  "DOUBLE",
-            "defaultValue": 2,
+            "name": "vizDist-figsize",
+            "label" : "Figure size",
+            "type":  "STRING",
+            "description": "Tuple with the figure size",
             "visibilityCondition" : "model.vizDist"
         },
         {
@@ -278,6 +278,20 @@
             "label" : "List of columns",
             "type":  "COLUMNS",
             "columnRole": "inputDataset",
+            "visibilityCondition" : "model.vizFrequency"
+        },
+        {
+            "name": "vizFrequency-ncols",
+            "label" : "Number of plot layout columns",
+            "type":  "DOUBLE",
+            "defaultValue": 2,
+            "visibilityCondition" : "model.vizFrequency"
+        },
+        {
+            "name": "vizFrequency-figsize",
+            "label" : "Figure size",
+            "type":  "STRING",
+            "description": "Tuple with the figure size",
             "visibilityCondition" : "model.vizFrequency"
         }
     ],

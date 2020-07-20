@@ -71,6 +71,8 @@ def plot_visualization(df, viz, recipe_config):
 
 
 def __correlation_matrix(df, cols, params):
+    if not cols:
+        cols = df.columns
     if params:
         df[cols].visualizations.plot_correlation_matrix(method=params)
     else:
@@ -78,6 +80,8 @@ def __correlation_matrix(df, cols, params):
 
 
 def __distribution(df, cols, params):
+    if not cols:
+        cols = df.columns
     if len(params) == 2:
         df[cols].visualizations.plot_distribution(n_cols=params[0], fig_size=params[1])
     elif len(params) == 1:
@@ -90,14 +94,20 @@ def __distribution(df, cols, params):
 
 
 def __pair_plot(df, cols, params):
+    if not cols:
+        cols = df.columns
     df[cols].visualizations.plot_pair_plot()
 
 
 def __unique(df, cols, params):
+    if not cols:
+        cols = df.columns
     df[cols].visualizations.plot_unique_count()
 
 
 def __frequency(df, cols, params):
+    if not cols:
+        cols = df.columns
     if len(params) == 2:
         df[cols].visualizations.plot_frequency_count(n_cols=params[0], fig_size=params[1])
     elif len(params) == 1:

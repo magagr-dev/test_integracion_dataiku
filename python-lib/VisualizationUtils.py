@@ -62,7 +62,8 @@ def plot_visualization(df, viz, recipe_config):
             param = recipe_config[str("vizDist" + c)].replace("(", "").replace(")", "").split(",")
             tuple_items = []
             for p in param:
-                tuple_items += [int(p)]
+                if isinstance(p, int):
+                    tuple_items += [int(p)]
             params += [tuple(tuple_items)]
         else:
             params += [recipe_config[str("vizDist" + c)]]

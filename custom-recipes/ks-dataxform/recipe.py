@@ -24,7 +24,7 @@ if apply_trans:
 
 if plot_viz:
     for viz in plot_viz:
-        plot_visualization(transformed_df, viz, recipe_config)
-        insights.save_figure(viz)
+        img_name = plot_visualization(transformed_df, viz, recipe_config)
+        insights.save_figure(img_name)
 
 output_dataset.write_with_schema(transformed_df)

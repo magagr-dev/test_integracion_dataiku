@@ -31,11 +31,11 @@ def switch_visualizations(viz):
         selected visualization function
     """
     switcher = {
-        "vizCorMat": [__correlation_matrix, ["-method"]],
-        "vizDist": [__distribution, ["-ncols", "-figsize"]],
-        "vizPairPlot": [__pair_plot, []],
-        "vizUniqueCount": [__unique, []],
-        "vizFrequency": [__frequency, ["-ncols", "-figsize"]]
+        "vizCorMat": [__correlation_matrix, "CorrelationMatrix", ["-method"]],
+        "vizDist": [__distribution, "Distribution", ["-ncols", "-figsize"]],
+        "vizPairPlot": [__pair_plot, "PairPlot", []],
+        "vizUniqueCount": [__unique, "UniqueCount", []],
+        "vizFrequency": [__frequency, "Frequency", ["-ncols", "-figsize"]]
     }
     return switcher.get(viz, "Invalid visualization")
 
@@ -54,20 +54,21 @@ def plot_visualization(df, viz, recipe_config):
         ---------------
         selected visualization plot image
     """
-    selected_viz, config = switch_visualizations(viz)
+    selected_viz, name, config = switch_visualizations(viz)
     cols = recipe_config[str(viz + '-cols')]
     params = []
     for c in config:
         if "figsize" in c:
-            param = recipe_config[str("vizDist" + c)].replace("(", "").replace(")", "").split(",")
+            param = recipe_config[str(viz + c)].replace("(", "").replace(")", "").split(",")
             tuple_items = []
             for p in param:
                 if isinstance(p, int):
                     tuple_items += [int(p)]
             params += [tuple(tuple_items)]
         else:
-            params += [recipe_config[str("vizDist" + c)]]
+            params += [recipe_config[str(viz + c)]]
     selected_viz(df, cols, params)
+    return name + '_' + str(cols)
 
 
 def __correlation_matrix(df, cols, params):

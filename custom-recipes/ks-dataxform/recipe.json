@@ -241,6 +241,7 @@
             "name": "vizDist-figsize",
             "label" : "Figure size",
             "type":  "STRING",
+            "defaultValue": "",
             "description": "Tuple with the figure size",
             "visibilityCondition" : "model.vizDist"
         },
@@ -291,6 +292,7 @@
             "name": "vizFrequency-figsize",
             "label" : "Figure size",
             "type":  "STRING",
+            "defaultValue": "",
             "description": "Tuple with the figure size",
             "visibilityCondition" : "model.vizFrequency"
         }

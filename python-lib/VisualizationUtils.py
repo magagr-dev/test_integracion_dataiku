@@ -34,11 +34,11 @@ def switch_visualizations(viz, df, cols, params):
         selected visualization class
     """
     switcher = {
-        "vizCorMat": df[cols].Visualizations.plot_correlation_matrix(params),
-        "vizDist": df[cols].Visuzalizations.plot_distribution(params),
-        "vizPairPlot": df[cols].Visualizations.plot_pair_plot(),
-        "vizUniqueCount": df[cols].Visualizations.plot_unique_count(),
-        "vizFrequency": df[cols].Visualizations.plot_frequency_count(params)
+        "vizCorMat": df[cols].visualizations.plot_correlation_matrix(params),
+        "vizDist": df[cols].visualizations.plot_distribution(params),
+        "vizPairPlot": df[cols].visualizations.plot_pair_plot(),
+        "vizUniqueCount": df[cols].visualizations.plot_unique_count(),
+        "vizFrequency": df[cols].visualizations.plot_frequency_count(params)
     }
     return switcher.get(viz, "Invalid visualization")
 

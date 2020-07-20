@@ -68,7 +68,7 @@ def plot_visualization(df, viz, recipe_config):
         else:
             params += [recipe_config[str(viz + c)]]
     selected_viz(df, cols, params)
-    return name + '_' + str(set(cols))
+    return name + '_' + str(cols).replace("[", "").replace("]", "").replace(", ", "-").replace("'", "")
 
 
 def __correlation_matrix(df, cols, params):

@@ -76,7 +76,7 @@ def pipeline_features(recipe_config, trans_sorting):
             trans_sorting (dict): dictionary with the selected transformations sorted
 
         Returns:
-            (Pipeline) Pipeline of transformations to apply to the original dataset
+            (list) List of transformations to apply to the original dataset
     """
     steps = []
     for i, trans in enumerate(sort_transforms(trans_sorting)):
@@ -87,4 +87,4 @@ def pipeline_features(recipe_config, trans_sorting):
             steps += [(apply_transform.__name__.lower(), apply_transform(params))]
         except KeyError:
             raise KeyError("Transformation %s is not available" % apply_transform.__name__)
-    return Pipeline(steps)
+    return steps

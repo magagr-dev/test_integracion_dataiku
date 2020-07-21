@@ -57,7 +57,7 @@ def plot_visualization(df, viz, recipe_config):
     selected_viz, name, config = switch_visualizations(viz)
     cols = recipe_config[str(viz + '-cols')]
     if not cols:
-        cols = df.columns
+        cols = list(df.columns)
     params = []
     for c in config:
         if "figsize" in c:
@@ -74,8 +74,6 @@ def plot_visualization(df, viz, recipe_config):
 
 
 def __correlation_matrix(df, cols, params):
-    if not cols:
-        cols = df.columns
     if params:
         df[cols].visualizations.plot_correlation_matrix(method=params)
     else:

@@ -78,13 +78,13 @@ def pipeline_features(recipe_config, trans_sorting):
         Returns:
             (list) List of transformations to apply to the original dataset
     """
-    steps = []
+    steps = {}
     for i, trans in enumerate(sort_transforms(trans_sorting)):
         key = trans + '-params'
         params = recipe_config[key]
         apply_transform = switch_transform(trans)
         try:
-            steps += [(apply_transform.__name__.lower(), apply_transform(params))]
+            steps[apply_transform.__name__.lower()] = apply_transform(params)
         except KeyError:
             raise KeyError("Transformation %s is not available" % apply_transform.__name__)
     return steps

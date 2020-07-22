@@ -1,6 +1,6 @@
 {
   "id": "ksmfp-plugin",
-  "version": "0.0.1",
+  "version": "0.1",
   "meta": {
     "label": "KSMF Plugin",
     "description": "Dataiku plugin providing the components developed in Knowledge Sharing - Model Factory project",
